@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nfbrentano.github.io/dividir_pdf/sitemap.xml

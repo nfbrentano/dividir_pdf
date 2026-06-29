@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dividir PDF Online - Separar Páginas de PDF Grátis e Seguro</title>
+    <meta name="description" content="Divida seus arquivos PDF online de forma rápida, gratuita e 100% segura. O processamento é feito localmente no seu navegador: seus arquivos nunca são enviados para um servidor.">
+    <meta name="keywords" content="dividir pdf, separar pdf, extrair paginas pdf, dividir pdf gratis, recortar pdf online, pdf splitter, dividir pdf localmente, segurança pdf">
+    <meta name="author" content="Dividir PDF Online">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nfbrentano.github.io/dividir_pdf/">
+    <meta property="og:title" content="Dividir PDF Online - Separar Páginas de PDF Grátis e Seguro">
+    <meta property="og:description" content="Divida seus arquivos PDF online de forma rápida, gratuita e 100% segura. O processamento é feito localmente no seu navegador: seus arquivos nunca são enviados para um servidor.">
+    <meta property="og:image" content="https://nfbrentano.github.io/dividir_pdf/assets/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nfbrentano.github.io/dividir_pdf/">
+    <meta property="twitter:title" content="Dividir PDF Online - Separar Páginas de PDF Grátis e Seguro">
+    <meta property="twitter:description" content="Divida seus arquivos PDF online de forma rápida, gratuita e 100% segura. O processamento é feito localmente no seu navegador: seus arquivos nunca são enviados para um servidor.">
+    <meta property="twitter:image" content="https://nfbrentano.github.io/dividir_pdf/assets/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>✂️</text></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- CDN Libraries -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- Schema.org JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Dividir PDF Online",
+      "operatingSystem": "All",
+      "applicationCategory": "UtilitiesApplication",
+      "browserRequirements": "Requires HTML5 support, File API, and JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "description": "Ferramenta online e gratuita para dividir arquivos PDF diretamente no navegador. Privacidade garantida, pois os arquivos não são enviados para nenhum servidor.",
+      "featureList": [
+        "Extração de todas as páginas em arquivos individuais",
+        "Configuração de intervalos de páginas personalizados",
+        "Divisão a cada X páginas",
+        "Processamento 100% local e seguro"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Background Elements for Visual Flair -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <header class="app-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i data-lucide="scissors" class="logo-icon"></i>
+                <span class="logo-text">Dividir<span class="highlight">PDF</span></span>
+            </a>
+            <div class="badge">
+                <i data-lucide="shield-check" class="badge-icon"></i>
+                <span>100% Local & Seguro</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <section class="tool-section container">
+            <div class="tool-intro text-center">
+                <h1 class="main-title">Dividir PDF Online e Grátis</h1>
+                <p class="subtitle">Separe páginas do seu PDF instantaneamente. Todo o processamento ocorre de forma segura no seu próprio navegador.</p>
+            </div>
+
+            <!-- Main Interactive Tool Container -->
+            <div class="tool-card glass-panel" id="tool-card">
+                <!-- Step 1: Upload State -->
+                <div class="upload-zone" id="upload-zone">
+                    <input type="file" id="file-input" accept="application/pdf" class="file-input-hidden">
+                    <div class="upload-content">
+                        <div class="icon-circle">
+                            <i data-lucide="file-up" class="upload-icon"></i>
+                        </div>
+                        <h2>Arraste e solte seu PDF aqui</h2>
+                        <p>ou clique para navegar nos seus arquivos</p>
+                        <span class="file-limit-hint">Suporta arquivos PDF de qualquer tamanho</span>
+                    </div>
+                </div>
+
+                <!-- Step 2: Editor State (Hidden initially) -->
+                <div class="editor-zone hidden" id="editor-zone">
+                    <div class="file-info-bar">
+                        <div class="file-meta">
+                            <i data-lucide="file-text" class="file-icon"></i>
+                            <div>
+                                <h3 id="file-name" class="file-name-text">nome-do-arquivo.pdf</h3>
+                                <span id="file-size" class="file-size-text">0 KB</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-icon-only" id="btn-reset" title="Escolher outro arquivo">
+                            <i data-lucide="x"></i>
+                        </button>
+                    </div>
+
+                    <div class="editor-grid">
+                        <!-- Left Panel: PDF Visual Preview / Summary -->
+                        <div class="preview-panel">
+                            <div class="doc-summary-card">
+                                <div class="page-count-badge">
+                                    <span class="badge-num" id="total-pages-badge">0</span>
+                                    <span class="badge-label">Páginas</span>
+                                </div>
+                                <div class="preview-thumbnail-container">
+                                    <div class="pdf-icon-large">
+                                        <i data-lucide="file-text"></i>
+                                    </div>
+                                    <div class="preview-overlay">
+                                        <span>Pronto para dividir</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Configurations & Actions -->
+                        <div class="controls-panel">
+                            <h3 class="controls-title">Escolha o modo de divisão</h3>
+                            
+                            <div class="mode-selector">
+                                <label class="mode-option active" for="radio-extract-all">
+                                    <input type="radio" name="split-mode" id="radio-extract-all" value="extract-all" checked>
+                                    <span class="mode-option-content">
+                                        <i data-lucide="layers" class="mode-icon"></i>
+                                        <span class="mode-details">
+                                            <strong>Extrair todas as páginas</strong>
+                                            <span>Salva cada página como um PDF separado.</span>
+                                        </span>
+                                    </span>
+                                </label>
+
+                                <label class="mode-option" for="radio-custom-ranges">
+                                    <input type="radio" name="split-mode" id="radio-custom-ranges" value="custom-ranges">
+                                    <span class="mode-option-content">
+                                        <i data-lucide="sliders" class="mode-icon"></i>
+                                        <span class="mode-details">
+                                            <strong>Intervalos personalizados</strong>
+                                            <span>Defina intervalos exatos (ex: 1-3, 5, 6-8).</span>
+                                        </span>
+                                    </span>
+                                </label>
+
+                                <label class="mode-option" for="radio-fixed-ranges">
+                                    <input type="radio" name="split-mode" id="radio-fixed-ranges" value="fixed-ranges">
+                                    <span class="mode-option-content">
+                                        <i data-lucide="split" class="mode-icon"></i>
+                                        <span class="mode-details">
+                                            <strong>Dividir a cada X páginas</strong>
+                                            <span>Divide o PDF em partes de tamanho igual.</span>
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- Mode Settings Area (Dynamic inputs based on radio selection) -->
+                            <div class="mode-settings">
+                                <!-- Settings for Extract All (No configs needed, but nice message) -->
+                                <div class="settings-group active-settings" id="settings-extract-all">
+                                    <p class="settings-help">Todas as páginas serão salvas individualmente. Se o PDF tiver mais de uma página, elas serão baixadas juntas em um único arquivo compactado ZIP.</p>
+                                </div>
+
+                                <!-- Settings for Custom Ranges -->
+                                <div class="settings-group hidden" id="settings-custom-ranges">
+                                    <label for="input-custom-ranges" class="input-label">Defina as faixas de páginas:</label>
+                                    <input type="text" id="input-custom-ranges" class="input-text" placeholder="Ex: 1-3, 5, 7-10" autocomplete="off">
+                                    <p class="input-hint">Separe os intervalos por vírgula. Use hífens para intervalos de páginas.</p>
+                                    <div id="custom-ranges-preview" class="ranges-preview-list">
+                                        <!-- Will show computed ranges dynamically -->
+                                    </div>
+                                    <span class="error-text hidden" id="custom-ranges-error">Intervalo inválido ou fora dos limites do documento.</span>
+                                    
+                                    <div class="checkbox-group" style="margin-top: 12px; display: flex; align-items: center; gap: 8px;">
+                                        <input type="checkbox" id="checkbox-separate-pages" style="accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer;">
+                                        <label for="checkbox-separate-pages" style="font-size: 0.875rem; color: var(--text-secondary); cursor: pointer;">Salvar cada página selecionada como um arquivo separado</label>
+                                    </div>
+                                </div>
+
+                                <!-- Settings for Fixed Ranges -->
+                                <div class="settings-group hidden" id="settings-fixed-ranges">
+                                    <div class="fixed-range-input-group">
+                                        <label for="input-fixed-count" class="input-label">Dividir a cada:</label>
+                                        <div class="number-stepper">
+                                            <button type="button" class="btn-step" id="btn-step-down">-</button>
+                                            <input type="number" id="input-fixed-count" class="input-number" value="1" min="1">
+                                            <button type="button" class="btn-step" id="btn-step-up">+</button>
+                                            <span class="input-suffix">páginas</span>
+                                        </div>
+                                    </div>
+                                    <p class="settings-help" id="fixed-ranges-summary">O documento será dividido em arquivos de 1 página cada.</p>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary btn-block btn-large btn-shine" id="btn-process-pdf">
+                                <i data-lucide="scissors" class="btn-icon"></i>
+                                <span>Dividir PDF Agora</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Processing State (Hidden initially) -->
+                <div class="processing-zone hidden" id="processing-zone">
+                    <div class="spinner-container">
+                        <div class="custom-spinner"></div>
+                    </div>
+                    <h2>Processando PDF...</h2>
+                    <p id="processing-status-text">Criando novos arquivos diretamente no seu navegador.</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Success State (Hidden initially) -->
+                <div class="success-zone hidden" id="success-zone">
+                    <div class="success-animation">
+                        <div class="checkmark-circle">
+                            <i data-lucide="check" class="check-icon"></i>
+                        </div>
+                    </div>
+                    <h2>PDF Dividido com Sucesso!</h2>
+                    <p id="success-message">Seus arquivos foram baixados automaticamente.</p>
+                    <div class="success-actions">
+                        <button class="btn btn-primary" id="btn-download-again">
+                            <i data-lucide="download" class="btn-icon"></i>
+                            <span>Baixar Novamente</span>
+                        </button>
+                        <button class="btn btn-secondary" id="btn-start-over">
+                            <i data-lucide="rotate-ccw" class="btn-icon"></i>
+                            <span>Dividir Outro PDF</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Information Section -->
+        <section class="seo-info-section">
+            <div class="container">
+                <hr class="section-divider">
+                
+                <div class="seo-grid">
+                    <article class="seo-article">
+                        <h2>Como dividir PDF online em poucos segundos</h2>
+                        <ol class="step-list">
+                            <li>
+                                <span class="step-number">1</span>
+                                <div>
+                                    <h3>Envie seu arquivo PDF</h3>
+                                    <p>Clique na área de upload ou arraste seu documento PDF diretamente para a caixa pontilhada acima.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-number">2</span>
+                                <div>
+                                    <h3>Escolha o método de divisão</h3>
+                                    <p>Selecione se deseja <strong>extrair cada página</strong> separadamente, definir <strong>intervalos de páginas personalizados</strong> (ex: páginas 1 a 5 e 8 a 10) ou <strong>dividir a cada X páginas</strong> de forma uniforme.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="step-number">3</span>
+                                <div>
+                                    <h3>Baixe os arquivos divididos</h3>
+                                    <p>Clique em "Dividir PDF Agora". Os arquivos gerados serão processados instantaneamente no seu navegador e o download iniciará automaticamente.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </article>
+
+                    <article class="seo-article highlight-card">
+                        <div class="card-icon-header">
+                            <i data-lucide="shield-check" class="card-icon text-primary"></i>
+                            <h2>Privacidade total: Seus dados não saem do seu computador</h2>
+                        </div>
+                        <p>Diferente de outros sites online de conversão de arquivos que realizam o upload do seu documento para servidores externos, o <strong>Dividir PDF Online</strong> utiliza tecnologia moderna baseada em WebAssembly e JavaScript local.</p>
+                        <p><strong>Nenhum bit do seu arquivo é enviado para a internet.</strong> Toda a separação das páginas ocorre inteiramente dentro da memória do seu próprio navegador. Isso significa segurança máxima para documentos confidenciais, contratos corporativos ou dados pessoais.</p>
+                        <div class="offline-badge">
+                            <i data-lucide="wifi-off"></i>
+                            <span>Funciona mesmo sem internet (100% offline)</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="seo-features-grid">
+                    <div class="feature-card">
+                        <i data-lucide="zap" class="feature-icon"></i>
+                        <h3>Processamento Instantâneo</h3>
+                        <p>Sem filas de espera. Como o processamento usa o hardware do seu próprio computador, a divisão é executada de forma muito mais rápida que em servidores congestionados.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i data-lucide="dollar-sign" class="feature-icon"></i>
+                        <h3>100% Gratuito e Sem Limites</h3>
+                        <p>Você pode dividir PDFs de qualquer tamanho e quantas vezes precisar. Não exigimos cadastro, e-mail ou dados de pagamento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i data-lucide="file-text" class="feature-icon"></i>
+                        <h3>Preservação de Qualidade</h3>
+                        <p>A estrutura interna, fontes, imagens e textos do PDF original são mantidos intactos nos arquivos resultantes, sem nenhuma perda de qualidade.</p>
+                    </div>
+                </div>
+
+                <!-- Accordion FAQ section for rich SEO snippet indexing -->
+                <article class="seo-faq">
+                    <h2 class="text-center">Perguntas Frequentes sobre Divisão de PDFs</h2>
+                    
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary>
+                                <span>É seguro usar este divisor de PDF online?</span>
+                                <i data-lucide="chevron-down" class="faq-chevron"></i>
+                            </summary>
+                            <div class="faq-content">
+                                <p>Sim, é totalmente seguro! Nosso site funciona inteiramente no lado do cliente (Client-Side). Seus documentos PDF nunca são enviados para um servidor web. O processamento acontece localmente na memória do seu navegador web. Você pode inclusive carregar a página e desconectar o cabo de rede para testar.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>
+                                <span>Como extrair apenas algumas páginas específicas de um PDF?</span>
+                                <i data-lucide="chevron-down" class="faq-chevron"></i>
+                            </summary>
+                            <div class="faq-content">
+                                <p>Para extrair páginas específicas, selecione o modo de divisão "Intervalos personalizados". No campo de texto que aparece, digite as páginas desejadas. Por exemplo, se deseja extrair a página 1 e as páginas de 3 a 5, digite <code>1, 3-5</code> e clique em dividir.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>
+                                <span>Há algum limite de tamanho ou quantidade de arquivos?</span>
+                                <i data-lucide="chevron-down" class="faq-chevron"></i>
+                            </summary>
+                            <div class="faq-content">
+                                <p>Não existe nenhum limite de tamanho ou quantidade imposto por nós. Como a ferramenta processa os dados localmente, o único limitador é a capacidade de memória RAM e processamento do seu próprio dispositivo.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>
+                                <span>Os arquivos gerados vêm com marca d'água?</span>
+                                <i data-lucide="chevron-down" class="faq-chevron"></i>
+                            </summary>
+                            <div class="faq-content">
+                                <p>Não! Nossos PDFs são salvos exatamente como o original, preservando toda a formatação e sem adicionar nenhuma marca d'água ou publicidade nos seus documentos.</p>
+                            </div>
+                        </details>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Dividir PDF Online. Processamento 100% no cliente. Sem envio de dados para servidores.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Início</a>
+                <span class="separator">&bull;</span>
+                <a href="#upload-zone" class="footer-link">Dividir Arquivo</a>
+                <span class="separator">&bull;</span>
+                <a href="https://github.com/nfbrentano/dividir_pdf" target="_blank" rel="noopener" class="footer-link">
+                    <i data-lucide="github" class="inline-icon"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App JavaScript -->
+    <script src="app.js" defer></script>
+</body>
+</html>
