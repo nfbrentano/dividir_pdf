@@ -56,9 +56,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. EVENTOS DE UPLOAD (Drag & Drop + Input File)
     // ----------------------------------------------------
 
+    // Prevenir que o navegador abra o PDF ao arrastar para fora da área
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        document.body.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    });
+
     // Clique na zona de upload abre o seletor de arquivos
-    uploadZone.addEventListener('click', () => {
-        fileInput.click();
+    uploadZone.addEventListener('click', (e) => {
+        if (e.target !== fileInput) {
+            fileInput.click();
+        }
     });
 
     fileInput.addEventListener('change', (e) => {
@@ -70,16 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Eventos de arrastar arquivo
     ['dragenter', 'dragover'].forEach(eventName => {
         uploadZone.addEventListener(eventName, (e) => {
-            e.preventDefault();
-            e.stopPropagation();
             uploadZone.classList.add('dragover');
         }, false);
     });
 
     ['dragleave', 'drop'].forEach(eventName => {
         uploadZone.addEventListener(eventName, (e) => {
-            e.preventDefault();
-            e.stopPropagation();
             uploadZone.classList.remove('dragover');
         }, false);
     });
@@ -105,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. PROCESSAMENTO DO ARQUIVO SELECIONADO
     // ----------------------------------------------------
     async function handleFileSelection(file) {
-        if (file.type !== 'application/pdf' && !file.name.endsWith('.pdf')) {
+        if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
             alert('Por favor, selecione apenas arquivos no formato PDF.');
             return;
         }
