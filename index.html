@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dividir PDF Online - Separar Páginas de PDF Grátis e Seguro</title>
-    <meta name="description" content="Divida seus arquivos PDF online de forma rápida, gratuita e 100% segura. O processamento é feito localmente no seu navegador: seus arquivos nunca são enviados para um servidor.">
-    <meta name="keywords" content="dividir pdf, separar pdf, extrair paginas pdf, dividir pdf gratis, recortar pdf online, pdf splitter, dividir pdf localmente, segurança pdf">
+    <title>Ferramentas de PDF Online - Dividir, Juntar e Editar PDF Grátis</title>
+    <meta name="description" content="Divida, junte, comprima, assine e converta arquivos PDF online de forma 100% segura e gratuita. O processamento é feito localmente no seu navegador sem enviar dados a servidores.">
+    <meta name="keywords" content="dividir pdf, juntar pdf, comprimir pdf, assinar pdf, ocr pdf, extrair texto pdf, converter imagem em pdf, pdf para jpg, organizar pdf, proteger pdf, separar pdf gratis, pdf local seguro">
     <meta name="author" content="Dividir PDF Online">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nfbrentano.github.io/dividir_pdf/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nfbrentano.github.io/dividir_pdf/">
-    <meta property="og:title" content="Dividir PDF Online - Separar Páginas de PDF Grátis e Seguro">
-    <meta property="og:description" content="Divida seus arquivos PDF online de forma rápida, gratuita e 100% segura. O processamento é feito localmente no seu navegador: seus arquivos nunca são enviados para um servidor.">
+    <meta property="og:title" content="Ferramentas de PDF Online - Dividir, Juntar e Editar PDF Grátis e Seguro">
+    <meta property="og:description" content="Divida, junte, comprima, assine e converta arquivos PDF online de forma 100% segura e gratuita. Processamento local e privado no seu navegador.">
     <meta property="og:image" content="https://nfbrentano.github.io/dividir_pdf/assets/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://nfbrentano.github.io/dividir_pdf/">
-    <meta property="twitter:title" content="Dividir PDF Online - Separar Páginas de PDF Grátis e Seguro">
-    <meta property="twitter:description" content="Divida seus arquivos PDF online de forma rápida, gratuita e 100% segura. O processamento é feito localmente no seu navegador: seus arquivos nunca são enviados para um servidor.">
+    <meta property="twitter:title" content="Ferramentas de PDF Online - Dividir, Juntar e Editar PDF Grátis e Seguro">
+    <meta property="twitter:description" content="Divida, junte, comprima, assine e converta arquivos PDF online de forma 100% segura e gratuita. Processamento local e privado no seu navegador.">
     <meta property="twitter:image" content="https://nfbrentano.github.io/dividir_pdf/assets/og-image.png">
 
     <!-- Favicon -->
@@ -36,6 +38,10 @@
     <!-- CDN Libraries -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js" defer></script>
+    <script src="https://unpkg.com/tesseract.js@5.0.5/dist/tesseract.min.js" defer></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <!-- Schema.org JSON-LD Structured Data for SEO -->
@@ -43,7 +49,7 @@
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Dividir PDF Online",
+      "name": "Ferramentas de PDF Online",
       "operatingSystem": "All",
       "applicationCategory": "UtilitiesApplication",
       "browserRequirements": "Requires HTML5 support, File API, and JavaScript",
@@ -52,12 +58,64 @@
         "price": "0.00",
         "priceCurrency": "USD"
       },
-      "description": "Ferramenta online e gratuita para dividir arquivos PDF diretamente no navegador. Privacidade garantida, pois os arquivos não são enviados para nenhum servidor.",
+      "description": "Suíte de ferramentas online e gratuitas para processar arquivos PDF (dividir, mesclar, comprimir, assinar, converter e extrair texto) diretamente no navegador. Privacidade 100% garantida.",
       "featureList": [
-        "Extração de todas as páginas em arquivos individuais",
-        "Configuração de intervalos de páginas personalizados",
-        "Divisão a cada X páginas",
-        "Processamento 100% local e seguro"
+        "Dividir PDF por páginas, intervalos personalizados ou dividir a cada X páginas",
+        "Juntar múltiplos arquivos PDF em um único documento ordenado",
+        "Comprimir PDFs reduzindo o tamanho de arquivo localmente",
+        "Assinar PDFs com assinatura digital manuscrita ou digitada",
+        "Extrair texto nativo e usar OCR em PDFs digitalizados",
+        "Converter PDF para imagens JPG/PNG e imagens para PDF",
+        "Proteger PDF com senha, rotacionar, numerar e organizar páginas"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "É seguro usar este divisor e editor de PDF online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, é totalmente seguro! Nosso site funciona inteiramente no lado do cliente (Client-Side). Seus documentos PDF nunca são enviados para um servidor web. O processamento acontece localmente na memória do seu próprio navegador."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como juntar ou mesclar vários arquivos PDF de forma rápida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Selecione a ferramenta 'Juntar PDFs' no painel principal, selecione os arquivos do seu dispositivo, arraste-os para ordenar na sequência desejada e clique em 'Juntar PDFs Agora'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como reduzir o tamanho de um PDF sem perder qualidade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use a ferramenta 'Comprimir PDF'. Escolha o nível de compressão ('Recomendada' para equilibrar qualidade e tamanho, 'Extrema' para o menor tamanho possível ou 'Leve' para preservar a qualidade máxima) e clique em processar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como assinar documentos PDF gratuitamente online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Escolha a ferramenta 'Assinar PDF'. Você pode desenhar sua assinatura digital na tela ou digitar seu nome escolhendo fontes elegantes, depois posicione a assinatura no documento e salve."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A ferramenta possui algum limite de uso ou custos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não, nossa plataforma é 100% gratuita, sem limites de tamanho de arquivos ou de quantidade de conversões, e não exige nenhum cadastro ou e-mail."
+          }
+        }
       ]
     }
     </script>
@@ -78,180 +136,605 @@
                 <span>100% Local & Seguro</span>
             </div>
         </div>
-    </header>
-
-    <main class="app-main">
-        <section class="tool-section container">
-            <div class="tool-intro text-center">
-                <h1 class="main-title">Dividir PDF Online e Grátis</h1>
-                <p class="subtitle">Separe páginas do seu PDF instantaneamente. Todo o processamento ocorre de forma segura no seu próprio navegador.</p>
+    </header>        <section class="tool-section container">
+            <!-- Dashboard View (Shown by default) -->
+            <div id="dashboard-view">
+                <div class="tool-intro text-center">
+                    <h1 class="main-title">Ferramentas de PDF 100% Locais e Gratuitas</h1>
+                    <p class="subtitle">Processamento super rápido e seguro diretamente no seu navegador. Seus arquivos nunca são enviados para um servidor.</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="tool-card-btn" data-tool="split">
+                        <div class="tool-card-icon"><i data-lucide="scissors"></i></div>
+                        <h3>Dividir PDF</h3>
+                        <p>Extraia páginas ou divida em vários arquivos.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="merge">
+                        <div class="tool-card-icon"><i data-lucide="layers"></i></div>
+                        <h3>Juntar PDFs</h3>
+                        <p>Combine vários arquivos PDF em um único documento.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="compress">
+                        <div class="tool-card-icon"><i data-lucide="minimize-2"></i></div>
+                        <h3>Comprimir PDF</h3>
+                        <p>Reduza o tamanho do PDF sem perder qualidade visual.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="pdf-to-img">
+                        <div class="tool-card-icon"><i data-lucide="image"></i></div>
+                        <h3>PDF para Imagem</h3>
+                        <p>Converta páginas de PDF em JPG ou PNG de alta qualidade.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="img-to-pdf">
+                        <div class="tool-card-icon"><i data-lucide="file-image"></i></div>
+                        <h3>Imagem para PDF</h3>
+                        <p>Converta suas fotos JPG ou PNG em um documento PDF.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="rotate">
+                        <div class="tool-card-icon"><i data-lucide="rotate-cw"></i></div>
+                        <h3>Rotacionar PDF</h3>
+                        <p>Gire páginas específicas ou todo o arquivo PDF.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="organize">
+                        <div class="tool-card-icon"><i data-lucide="layout-grid"></i></div>
+                        <h3>Organizar PDF</h3>
+                        <p>Reordene ou exclua páginas do seu arquivo PDF.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="watermark">
+                        <div class="tool-card-icon"><i data-lucide="stamp"></i></div>
+                        <h3>Marca d'Água</h3>
+                        <p>Adicione textos ou imagens customizadas nas páginas.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="page-numbers">
+                        <div class="tool-card-icon"><i data-lucide="binary"></i></div>
+                        <h3>Numerar Páginas</h3>
+                        <p>Insira números de página facilmente no seu arquivo.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="protect">
+                        <div class="tool-card-icon"><i data-lucide="lock"></i></div>
+                        <h3>Proteger PDF</h3>
+                        <p>Adicione senha e restrinja o acesso ao seu documento.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="sign">
+                        <div class="tool-card-icon"><i data-lucide="pen-tool"></i></div>
+                        <h3>Assinar PDF</h3>
+                        <p>Desenhe ou digite sua assinatura e posicione na página.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="fill-form">
+                        <div class="tool-card-icon"><i data-lucide="form-input"></i></div>
+                        <h3>Preencher Formulário</h3>
+                        <p>Preencha campos interativos do seu PDF diretamente aqui.</p>
+                    </div>
+                    <div class="tool-card-btn" data-tool="ocr">
+                        <div class="tool-card-icon"><i data-lucide="eye"></i></div>
+                        <h3>Extrair Texto (OCR)</h3>
+                        <p>Extraia textos ou use OCR em documentos digitalizados.</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Main Interactive Tool Container -->
-            <div class="tool-card glass-panel" id="tool-card">
-                <!-- Step 1: Upload State -->
-                <div class="upload-zone" id="upload-zone">
-                    <input type="file" id="file-input" accept="application/pdf" class="file-input-hidden">
-                    <div class="upload-content">
-                        <div class="icon-circle">
-                            <i data-lucide="file-up" class="upload-icon"></i>
-                        </div>
-                        <h2>Arraste e solte seu PDF aqui</h2>
-                        <p>ou clique para navegar nos seus arquivos</p>
-                        <span class="file-limit-hint">Suporta arquivos PDF de qualquer tamanho</span>
+            <!-- Workspace View (Hidden by default) -->
+            <div id="workspace-view" class="hidden">
+                <div class="workspace-header">
+                    <button class="btn btn-secondary" id="btn-back-home">
+                        <i data-lucide="arrow-left"></i>
+                        <span>Voltar</span>
+                    </button>
+                    <div class="workspace-title-area">
+                        <h2 id="workspace-title">Carregando ferramenta...</h2>
+                        <p id="workspace-subtitle" class="subtitle">Por favor, aguarde.</p>
                     </div>
                 </div>
 
-                <!-- Step 2: Editor State (Hidden initially) -->
-                <div class="editor-zone hidden" id="editor-zone">
-                    <div class="file-info-bar">
-                        <div class="file-meta">
-                            <i data-lucide="file-text" class="file-icon"></i>
-                            <div>
-                                <h3 id="file-name" class="file-name-text">nome-do-arquivo.pdf</h3>
-                                <span id="file-size" class="file-size-text">0 KB</span>
+                <!-- Main Interactive Tool Container -->
+                <div class="tool-card glass-panel" id="tool-card">
+                    <!-- Step 1: Upload State -->
+                    <div class="upload-zone" id="upload-zone">
+                        <input type="file" id="file-input" accept="application/pdf" class="file-input-hidden">
+                        <div class="upload-content">
+                            <div class="icon-circle">
+                                <i data-lucide="file-up" class="upload-icon" id="upload-zone-icon"></i>
                             </div>
+                            <h2 id="upload-zone-title">Arraste e solte seu PDF aqui</h2>
+                            <p id="upload-zone-subtitle">ou clique para navegar nos seus arquivos</p>
+                            <span class="file-limit-hint" id="upload-zone-hint">Suporta arquivos PDF de qualquer tamanho</span>
                         </div>
-                        <button class="btn btn-secondary btn-icon-only" id="btn-reset" title="Escolher outro arquivo">
-                            <i data-lucide="x"></i>
-                        </button>
                     </div>
 
-                    <div class="editor-grid">
-                        <!-- Left Panel: PDF Visual Preview / Summary -->
-                        <div class="preview-panel">
-                            <div class="doc-summary-card">
-                                <div class="page-count-badge">
-                                    <span class="badge-num" id="total-pages-badge">0</span>
-                                    <span class="badge-label">Páginas</span>
-                                </div>
-                                <div class="preview-thumbnail-container">
-                                    <div class="pdf-icon-large">
-                                        <i data-lucide="file-text"></i>
-                                    </div>
-                                    <div class="preview-overlay">
-                                        <span>Pronto para dividir</span>
-                                    </div>
+                    <!-- Step 2: Editor State -->
+                    <div class="editor-zone hidden" id="editor-zone">
+                        <div class="file-info-bar">
+                            <div class="file-meta">
+                                <i data-lucide="file-text" class="file-icon" id="editor-file-icon"></i>
+                                <div>
+                                    <h3 id="file-name" class="file-name-text">nome-do-arquivo.pdf</h3>
+                                    <span id="file-size" class="file-size-text">0 KB</span>
                                 </div>
                             </div>
+                            <button class="btn btn-secondary btn-icon-only" id="btn-reset" title="Escolher outro arquivo">
+                                <i data-lucide="x"></i>
+                            </button>
                         </div>
 
-                        <!-- Right Panel: Configurations & Actions -->
-                        <div class="controls-panel">
-                            <h3 class="controls-title">Escolha o modo de divisão</h3>
-                            
-                            <div class="mode-selector">
-                                <label class="mode-option active" for="radio-extract-all">
-                                    <input type="radio" name="split-mode" id="radio-extract-all" value="extract-all" checked>
-                                    <span class="mode-option-content">
-                                        <i data-lucide="layers" class="mode-icon"></i>
-                                        <span class="mode-details">
-                                            <strong>Extrair todas as páginas</strong>
-                                            <span>Salva cada página como um PDF separado.</span>
-                                        </span>
-                                    </span>
-                                </label>
-
-                                <label class="mode-option" for="radio-custom-ranges">
-                                    <input type="radio" name="split-mode" id="radio-custom-ranges" value="custom-ranges">
-                                    <span class="mode-option-content">
-                                        <i data-lucide="sliders" class="mode-icon"></i>
-                                        <span class="mode-details">
-                                            <strong>Intervalos personalizados</strong>
-                                            <span>Defina intervalos exatos (ex: 1-3, 5, 6-8).</span>
-                                        </span>
-                                    </span>
-                                </label>
-
-                                <label class="mode-option" for="radio-fixed-ranges">
-                                    <input type="radio" name="split-mode" id="radio-fixed-ranges" value="fixed-ranges">
-                                    <span class="mode-option-content">
-                                        <i data-lucide="split" class="mode-icon"></i>
-                                        <span class="mode-details">
-                                            <strong>Dividir a cada X páginas</strong>
-                                            <span>Divide o PDF em partes de tamanho igual.</span>
-                                        </span>
-                                    </span>
-                                </label>
-                            </div>
-
-                            <!-- Mode Settings Area (Dynamic inputs based on radio selection) -->
-                            <div class="mode-settings">
-                                <!-- Settings for Extract All (No configs needed, but nice message) -->
-                                <div class="settings-group active-settings" id="settings-extract-all">
-                                    <p class="settings-help">Todas as páginas serão salvas individualmente. Se o PDF tiver mais de uma página, elas serão baixadas juntas em um único arquivo compactado ZIP.</p>
-                                </div>
-
-                                <!-- Settings for Custom Ranges -->
-                                <div class="settings-group hidden" id="settings-custom-ranges">
-                                    <label for="input-custom-ranges" class="input-label">Defina as faixas de páginas:</label>
-                                    <input type="text" id="input-custom-ranges" class="input-text" placeholder="Ex: 1-3, 5, 7-10" autocomplete="off">
-                                    <p class="input-hint">Separe os intervalos por vírgula. Use hífens para intervalos de páginas.</p>
-                                    <div id="custom-ranges-preview" class="ranges-preview-list">
-                                        <!-- Will show computed ranges dynamically -->
+                        <div class="editor-grid" id="editor-grid">
+                            <!-- Left Panel: Preview/List/Pages -->
+                            <div class="preview-panel" id="preview-panel">
+                                <!-- Doc Summary (default single file tools) -->
+                                <div class="doc-summary-card" id="doc-summary-card">
+                                    <div class="page-count-badge">
+                                        <span class="badge-num" id="total-pages-badge">0</span>
+                                        <span class="badge-label">Páginas</span>
                                     </div>
-                                    <span class="error-text hidden" id="custom-ranges-error">Intervalo inválido ou fora dos limites do documento.</span>
-                                    
-                                    <div class="checkbox-group" style="margin-top: 12px; display: flex; align-items: center; gap: 8px;">
-                                        <input type="checkbox" id="checkbox-separate-pages" style="accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer;">
-                                        <label for="checkbox-separate-pages" style="font-size: 0.875rem; color: var(--text-secondary); cursor: pointer;">Salvar cada página selecionada como um arquivo separado</label>
-                                    </div>
-                                </div>
-
-                                <!-- Settings for Fixed Ranges -->
-                                <div class="settings-group hidden" id="settings-fixed-ranges">
-                                    <div class="fixed-range-input-group">
-                                        <label for="input-fixed-count" class="input-label">Dividir a cada:</label>
-                                        <div class="number-stepper">
-                                            <button type="button" class="btn-step" id="btn-step-down">-</button>
-                                            <input type="number" id="input-fixed-count" class="input-number" value="1" min="1">
-                                            <button type="button" class="btn-step" id="btn-step-up">+</button>
-                                            <span class="input-suffix">páginas</span>
+                                    <div class="preview-thumbnail-container">
+                                        <div class="pdf-icon-large">
+                                            <i data-lucide="file-text"></i>
+                                        </div>
+                                        <div class="preview-overlay">
+                                            <span>Pronto para processar</span>
                                         </div>
                                     </div>
-                                    <p class="settings-help" id="fixed-ranges-summary">O documento será dividido em arquivos de 1 página cada.</p>
+                                </div>
+
+                                <!-- Multi-file List (Merge / Image to PDF) -->
+                                <div class="multi-file-list-container hidden" id="multi-file-list-container">
+                                    <div class="list-header">
+                                        <span>Arquivos Selecionados</span>
+                                        <span class="file-count" id="multi-file-count">0 arquivos</span>
+                                    </div>
+                                    <div class="file-list-items" id="file-list-items">
+                                        <!-- Rendered dynamically -->
+                                    </div>
+                                    <button class="btn btn-secondary btn-block" id="btn-add-more-files" style="margin-top: 12px;">
+                                        <i data-lucide="plus"></i>
+                                        <span>Adicionar mais arquivos</span>
+                                    </button>
+                                    <input type="file" id="add-more-files-input" class="hidden" multiple>
+                                </div>
+
+                                <!-- Page Thumbnails (Rotate, Organize, etc.) -->
+                                <div class="pages-grid-container hidden" id="pages-grid-container">
+                                    <div class="pages-grid-header">
+                                        <span>Visualização das Páginas:</span>
+                                    </div>
+                                    <div class="pages-grid" id="pages-grid">
+                                        <!-- Canvas previews generated dynamically -->
+                                    </div>
+                                </div>
+
+                                <!-- Signature Interactive Canvas Preview -->
+                                <div class="canvas-editor-container hidden" id="canvas-editor-container">
+                                    <div class="canvas-editor-header">
+                                        <span>Posicionar Assinatura</span>
+                                        <span class="canvas-hint">Arraste a assinatura para o local desejado</span>
+                                    </div>
+                                    <div class="canvas-viewport" id="canvas-viewport">
+                                        <canvas id="editor-pdf-canvas"></canvas>
+                                        <div class="draggable-signature hidden" id="draggable-signature">
+                                            <img id="signature-img-preview" alt="Assinatura">
+                                            <div class="sig-resize-handle"></div>
+                                            <button class="btn-sig-delete" id="btn-delete-sig"><i data-lucide="trash-2"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="page-navigation" style="margin-top: 12px; display: flex; justify-content: center; align-items: center; gap: 16px;">
+                                        <button class="btn btn-secondary btn-icon-only" id="btn-prev-page"><i data-lucide="chevron-left"></i></button>
+                                        <span>Página <span id="current-edit-page">1</span> de <span id="total-edit-pages">1</span></span>
+                                        <button class="btn btn-secondary btn-icon-only" id="btn-next-page"><i data-lucide="chevron-right"></i></button>
+                                    </div>
                                 </div>
                             </div>
 
-                            <button class="btn btn-primary btn-block btn-large btn-shine" id="btn-process-pdf">
-                                <i data-lucide="scissors" class="btn-icon"></i>
-                                <span>Dividir PDF Agora</span>
+                            <!-- Right Panel: Configurations & Actions -->
+                            <div class="controls-panel">
+                                <h3 class="controls-title" id="controls-title">Configurações</h3>
+                                
+                                <div class="mode-settings-wrapper" style="min-height: 120px;">
+                                    <!-- Settings: Split PDF -->
+                                    <div class="settings-group hidden" id="settings-split">
+                                        <div class="mode-selector">
+                                            <label class="mode-option active" for="radio-extract-all">
+                                                <input type="radio" name="split-mode" id="radio-extract-all" value="extract-all" checked>
+                                                <span class="mode-option-content">
+                                                    <i data-lucide="layers" class="mode-icon"></i>
+                                                    <span class="mode-details">
+                                                        <strong>Extrair todas as páginas</strong>
+                                                        <span>Salva cada página como um PDF separado.</span>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                            <label class="mode-option" for="radio-custom-ranges">
+                                                <input type="radio" name="split-mode" id="radio-custom-ranges" value="custom-ranges">
+                                                <span class="mode-option-content">
+                                                    <i data-lucide="sliders" class="mode-icon"></i>
+                                                    <span class="mode-details">
+                                                        <strong>Intervalos personalizados</strong>
+                                                        <span>Defina intervalos exatos (ex: 1-3, 5, 6-8).</span>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                            <label class="mode-option" for="radio-fixed-ranges">
+                                                <input type="radio" name="split-mode" id="radio-fixed-ranges" value="fixed-ranges">
+                                                <span class="mode-option-content">
+                                                    <i data-lucide="split" class="mode-icon"></i>
+                                                    <span class="mode-details">
+                                                        <strong>Dividir a cada X páginas</strong>
+                                                        <span>Divide o PDF em partes de tamanho igual.</span>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                        </div>
+
+                                        <div class="mode-settings-divider" style="margin-top: 16px;"></div>
+
+                                        <div id="split-settings-details" style="margin-top: 12px;">
+                                            <div class="settings-detail-section active-settings" id="settings-extract-all">
+                                                <p class="settings-help">Todas as páginas serão salvas individualmente. Se o PDF tiver mais de uma página, elas serão baixadas juntas em um ZIP.</p>
+                                            </div>
+                                            <div class="settings-detail-section hidden" id="settings-custom-ranges">
+                                                <label for="input-custom-ranges" class="input-label">Defina as faixas de páginas:</label>
+                                                <input type="text" id="input-custom-ranges" class="input-text" placeholder="Ex: 1-3, 5, 7-10" autocomplete="off" style="width:100%;">
+                                                <p class="input-hint">Separe os intervalos por vírgula. Use hífens para intervalos de páginas.</p>
+                                                <div id="custom-ranges-preview" class="ranges-preview-list"></div>
+                                                <span class="error-text hidden" id="custom-ranges-error">Intervalo inválido.</span>
+                                                <div class="checkbox-group" style="margin-top: 12px; display: flex; align-items: center; gap: 8px;">
+                                                    <input type="checkbox" id="checkbox-separate-pages" style="accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer;">
+                                                    <label for="checkbox-separate-pages" style="font-size: 0.875rem; color: var(--text-secondary); cursor: pointer;">Salvar cada página selecionada como arquivo separado</label>
+                                                </div>
+                                            </div>
+                                            <div class="settings-detail-section hidden" id="settings-fixed-ranges">
+                                                <div class="fixed-range-input-group">
+                                                    <label for="input-fixed-count" class="input-label">Dividir a cada:</label>
+                                                    <div class="number-stepper">
+                                                        <button type="button" class="btn-step" id="btn-step-down">-</button>
+                                                        <input type="number" id="input-fixed-count" class="input-number" value="1" min="1">
+                                                        <button type="button" class="btn-step" id="btn-step-up">+</button>
+                                                        <span class="input-suffix">páginas</span>
+                                                    </div>
+                                                </div>
+                                                <p class="settings-help" id="fixed-ranges-summary" style="margin-top: 8px;">O documento será dividido em arquivos de 1 página cada.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: Merge PDF -->
+                                    <div class="settings-group hidden" id="settings-merge">
+                                        <p class="settings-help">Arraste os arquivos listados à esquerda para ajustar a ordem de junção. O PDF resultante conterá todos os arquivos combinados.</p>
+                                    </div>
+
+                                    <!-- Settings: Compress PDF -->
+                                    <div class="settings-group hidden" id="settings-compress">
+                                        <label class="input-label" style="margin-bottom: 8px;">Nível de Compressão:</label>
+                                        <div class="mode-selector">
+                                            <label class="mode-option active" for="compress-rec">
+                                                <input type="radio" name="compress-level" id="compress-rec" value="recommended" checked>
+                                                <span class="mode-option-content">
+                                                    <i data-lucide="zap" class="mode-icon"></i>
+                                                    <span class="mode-details">
+                                                        <strong>Compressão Recomendada</strong>
+                                                        <span>Boa qualidade e bom tamanho de arquivo.</span>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                            <label class="mode-option" for="compress-extreme">
+                                                <input type="radio" name="compress-level" id="compress-extreme" value="extreme">
+                                                <span class="mode-option-content">
+                                                    <i data-lucide="minimize-2" class="mode-icon"></i>
+                                                    <span class="mode-details">
+                                                        <strong>Compressão Extrema</strong>
+                                                        <span>Menor tamanho possível (qualidade reduzida).</span>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                            <label class="mode-option" for="compress-low">
+                                                <input type="radio" name="compress-level" id="compress-low" value="low">
+                                                <span class="mode-option-content">
+                                                    <i data-lucide="shield" class="mode-icon"></i>
+                                                    <span class="mode-details">
+                                                        <strong>Compressão Leve</strong>
+                                                        <span>Alta qualidade de imagem, menor compressão.</span>
+                                                    </span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: PDF to Image -->
+                                    <div class="settings-group hidden" id="settings-pdf-to-img">
+                                        <div class="form-group" style="margin-bottom: 12px;">
+                                            <label class="input-label" for="select-img-format">Formato de Saída:</label>
+                                            <select id="select-img-format" class="input-select" style="width: 100%; margin-top: 4px;">
+                                                <option value="png">PNG (Excelente qualidade)</option>
+                                                <option value="jpeg">JPEG (Menor tamanho de arquivo)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="input-label" style="display: block; margin-bottom: 6px;">Qualidade / Resolução (DPI):</label>
+                                            <div class="dpi-selector" style="display: flex; gap: 16px;">
+                                                <label style="cursor:pointer;"><input type="radio" name="img-dpi" value="150" checked> Normal (150 DPI)</label>
+                                                <label style="cursor:pointer;"><input type="radio" name="img-dpi" value="300"> Alta (300 DPI - Impressão)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: Image to PDF -->
+                                    <div class="settings-group hidden" id="settings-img-to-pdf">
+                                        <div class="form-group" style="margin-bottom: 8px;">
+                                            <label class="input-label" for="select-page-size">Tamanho da Página:</label>
+                                            <select id="select-page-size" class="input-select" style="width:100%; margin-top: 4px;">
+                                                <option value="a4">A4 (Padrão)</option>
+                                                <option value="letter">Letter (Carta)</option>
+                                                <option value="fit">Ajustar ao tamanho da imagem</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 8px;">
+                                            <label class="input-label" for="select-img-orientation">Orientação:</label>
+                                            <select id="select-img-orientation" class="input-select" style="width:100%; margin-top: 4px;">
+                                                <option value="portrait">Retrato (Vertical)</option>
+                                                <option value="landscape">Paisagem (Horizontal)</option>
+                                                <option value="auto">Automático (Baseado em cada imagem)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="input-label" for="select-img-margin">Margens da Página:</label>
+                                            <select id="select-img-margin" class="input-select" style="width:100%; margin-top: 4px;">
+                                                <option value="none">Sem Margens</option>
+                                                <option value="small">Finas (10px)</option>
+                                                <option value="large">Largas (20px)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: Rotate PDF -->
+                                    <div class="settings-group hidden" id="settings-rotate">
+                                        <p class="settings-help">Gire as páginas individualmente clicando nelas ao lado, ou use as ações abaixo:</p>
+                                        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                                            <button class="btn btn-secondary btn-block" id="btn-rotate-all-cw">
+                                                <i data-lucide="rotate-cw"></i>
+                                                <span>Girar Todos Horário (90°)</span>
+                                            </button>
+                                            <button class="btn btn-secondary btn-block" id="btn-rotate-all-ccw">
+                                                <i data-lucide="rotate-ccw"></i>
+                                                <span>Girar Todos Anti-Horário (90°)</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: Organize PDF -->
+                                    <div class="settings-group hidden" id="settings-organize">
+                                        <p class="settings-help">Ordene o arquivo arrastando as páginas ao lado. Clique na lixeira <i data-lucide="trash-2" style="width:12px; height:12px; display:inline-block; vertical-align:middle;"></i> para excluir páginas.</p>
+                                    </div>
+
+                                    <!-- Settings: Watermark PDF -->
+                                    <div class="settings-group hidden" id="settings-watermark">
+                                        <div class="watermark-type-selector" style="display: flex; gap: 16px; margin-bottom: 12px;">
+                                            <label style="cursor:pointer;"><input type="radio" name="watermark-type" value="text" checked> Texto</label>
+                                            <label style="cursor:pointer;"><input type="radio" name="watermark-type" value="image"> Imagem</label>
+                                        </div>
+
+                                        <div id="watermark-text-inputs">
+                                            <label class="input-label" for="watermark-text">Texto:</label>
+                                            <input type="text" id="watermark-text" class="input-text" placeholder="CONFIDENCIAL, RASCUNHO, etc." style="width:100%; margin-top: 4px; margin-bottom: 8px;">
+                                            
+                                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                                <div>
+                                                    <label class="input-label" for="watermark-font-size">Tamanho:</label>
+                                                    <input type="number" id="watermark-font-size" class="input-text" value="50" min="10" max="200" style="width:100%; margin-top: 4px;">
+                                                </div>
+                                                <div>
+                                                    <label class="input-label" for="watermark-color">Cor Texto:</label>
+                                                    <input type="color" id="watermark-color" class="input-text" value="#ef4444" style="width:100%; height: 42px; padding: 2px; margin-top: 4px; cursor: pointer;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="watermark-image-inputs" class="hidden">
+                                            <label class="input-label" for="watermark-image-file">Selecionar Imagem:</label>
+                                            <input type="file" id="watermark-image-file" accept="image/png, image/jpeg" style="width:100%; margin-top: 4px; font-size: 0.8rem;">
+                                        </div>
+
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+                                            <div>
+                                                <label class="input-label" for="watermark-opacity">Opacidade (%):</label>
+                                                <input type="number" id="watermark-opacity" class="input-text" value="30" min="0" max="100" style="width:100%; margin-top: 4px;">
+                                            </div>
+                                            <div>
+                                                <label class="input-label" for="watermark-rotation">Rotação (°):</label>
+                                                <input type="number" id="watermark-rotation" class="input-text" value="45" min="-360" max="360" style="width:100%; margin-top: 4px;">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="margin-top: 8px;">
+                                            <label class="input-label" for="watermark-layout">Posicionamento:</label>
+                                            <select id="watermark-layout" class="input-select" style="width:100%; margin-top: 4px;">
+                                                <option value="center">Centralizado</option>
+                                                <option value="tile">Ladrilhado (Cobre a página toda)</option>
+                                                <option value="bottom-right">Canto Inferior Direito</option>
+                                                <option value="top-left">Canto Superior Esquerdo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: Page Numbers -->
+                                    <div class="settings-group hidden" id="settings-page-numbers">
+                                        <div class="form-group" style="margin-bottom: 8px;">
+                                            <label class="input-label" for="page-num-format">Formato:</label>
+                                            <select id="page-num-format" class="input-select" style="width: 100%; margin-top: 4px;">
+                                                <option value="simple">Apenas número (ex: 1)</option>
+                                                <option value="page-x">"Página X"</option>
+                                                <option value="x-of-y">"X de Y"</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 8px;">
+                                            <label class="input-label" for="page-num-position">Alinhamento e Posição:</label>
+                                            <select id="page-num-position" class="input-select" style="width: 100%; margin-top: 4px;">
+                                                <option value="bottom-center">Rodapé - Centro</option>
+                                                <option value="bottom-right">Rodapé - Direita</option>
+                                                <option value="bottom-left">Rodapé - Esquerda</option>
+                                                <option value="top-center">Cabeçalho - Centro</option>
+                                                <option value="top-right">Cabeçalho - Direita</option>
+                                            </select>
+                                        </div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+                                            <div>
+                                                <label class="input-label" for="page-num-start">Começar em:</label>
+                                                <input type="number" id="page-num-start" class="input-text" value="1" min="1" style="width:100%; margin-top: 4px;">
+                                            </div>
+                                            <div>
+                                                <label class="input-label" for="page-num-size">Tamanho:</label>
+                                                <input type="number" id="page-num-size" class="input-text" value="10" min="6" max="24" style="width:100%; margin-top: 4px;">
+                                            </div>
+                                        </div>
+                                        <div class="checkbox-group" style="display: flex; align-items: center; gap: 8px; margin-top: 8px;">
+                                            <input type="checkbox" id="page-num-skip-first" checked style="accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer;">
+                                            <label for="page-num-skip-first" style="font-size: 0.815rem; color: var(--text-secondary); cursor: pointer;">Pular primeira página (capa)</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: Protect PDF -->
+                                    <div class="settings-group hidden" id="settings-protect">
+                                        <div class="form-group" style="margin-bottom: 8px;">
+                                            <label class="input-label" for="protect-password">Senha de Proteção:</label>
+                                            <input type="password" id="protect-password" class="input-text" placeholder="Digite uma senha para o PDF" style="width: 100%; margin-top: 4px;">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="input-label" for="protect-password-confirm">Confirmar Senha:</label>
+                                            <input type="password" id="protect-password-confirm" class="input-text" placeholder="Confirme a senha" style="width: 100%; margin-top: 4px;">
+                                        </div>
+                                        <span class="error-text hidden" id="protect-error" style="color:var(--accent-red); font-size:0.8rem; display:block; margin-top:4px;">As senhas não conferem.</span>
+                                    </div>
+
+                                    <!-- Settings: Sign PDF -->
+                                    <div class="settings-group hidden" id="settings-sign">
+                                        <label class="input-label">Assinaturas Criadas:</label>
+                                        <div class="signatures-list" id="signatures-list" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; margin-top: 4px;">
+                                            <span class="no-signatures" style="font-size: 0.815rem; color: var(--text-muted);">Nenhuma assinatura criada.</span>
+                                        </div>
+
+                                        <button class="btn btn-secondary btn-block" id="btn-create-signature-trigger" type="button">
+                                            <i data-lucide="plus" style="width:16px; height:16px;"></i>
+                                            <span>Criar Assinatura</span>
+                                        </button>
+
+                                        <!-- Placement Indicator (Dynamic text) -->
+                                        <div id="placement-actions" class="hidden" style="margin-top: 12px; padding: 10px; background: rgba(99, 102, 241, 0.08); border-radius: var(--border-radius-sm); border: 1px solid rgba(99,102,241,0.2);">
+                                            <p style="font-size: 0.815rem; color: #a5b4fc; line-height: 1.4;">Clique na assinatura criada e ela aparecerá na página. Arraste e redimensione para posicionar, então clique em <strong>Processar PDF</strong>.</p>
+                                        </div>
+
+                                        <!-- Signature Creation Modal (Floating Overlay Container) -->
+                                        <div class="signature-modal hidden" id="signature-modal">
+                                            <div class="signature-modal-content glass-panel" style="padding:24px; max-width: 440px; margin: 10% auto; display: flex; flex-direction: column; gap: 16px;">
+                                                <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
+                                                    <h3 style="font-size:1.15rem; margin:0;">Criar Assinatura</h3>
+                                                    <button class="btn btn-secondary btn-icon-only" id="btn-close-sig-modal" type="button"><i data-lucide="x"></i></button>
+                                                </div>
+                                                <div class="signature-tabs" style="display: flex; gap: 8px; border-bottom: 1px solid var(--card-border); padding-bottom: 8px;">
+                                                    <button class="sig-tab-btn active" data-tab="draw" type="button" style="background:transparent; border:none; color:var(--text-primary); cursor:pointer; font-weight:600; padding: 4px 8px; border-bottom: 2px solid var(--primary);">Desenhar</button>
+                                                    <button class="sig-tab-btn" data-tab="type" type="button" style="background:transparent; border:none; color:var(--text-secondary); cursor:pointer; font-weight:500; padding: 4px 8px;">Digitar</button>
+                                                </div>
+
+                                                <!-- Draw canvas -->
+                                                <div class="sig-tab-content" id="sig-tab-draw-content">
+                                                    <div class="canvas-container-sig" style="background: #ffffff; border-radius: var(--border-radius-sm); overflow: hidden; border: 1px solid var(--card-border);">
+                                                        <canvas id="signature-canvas" width="390" height="180" style="display: block; cursor: crosshair;"></canvas>
+                                                    </div>
+                                                    <button class="btn btn-secondary btn-block" id="btn-clear-signature" type="button" style="margin-top: 8px; padding: 6px 12px; font-size: 0.8rem;">Limpar Tela</button>
+                                                </div>
+
+                                                <!-- Text Input -->
+                                                <div class="sig-tab-content hidden" id="sig-tab-type-content">
+                                                    <input type="text" id="signature-text-input" class="input-text" placeholder="Digite seu nome" style="width: 100%;">
+                                                    <div class="font-previews" id="font-previews" style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                                                        <!-- Font variants populated via JS -->
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 8px;">
+                                                    <button class="btn btn-secondary" id="btn-cancel-sig-creation" type="button">Cancelar</button>
+                                                    <button class="btn btn-primary" id="btn-save-created-signature" type="button">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: Fill Form -->
+                                    <div class="settings-group hidden" id="settings-fill-form">
+                                        <p class="settings-help" style="margin-bottom: 8px;">Campos interativos encontrados no PDF:</p>
+                                        <div id="form-fields-container" class="form-fields-container" style="display: flex; flex-direction: column; gap: 12px; max-height: 260px; overflow-y: auto; padding-right: 4px;">
+                                            <span class="no-fields" style="font-size: 0.815rem; color: var(--text-muted);">Nenhum campo interativo encontrado.</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Settings: OCR -->
+                                    <div class="settings-group hidden" id="settings-ocr">
+                                        <div class="form-group" style="margin-bottom: 8px;">
+                                            <label class="input-label" for="ocr-language">Idioma do Documento:</label>
+                                            <select id="ocr-language" class="input-select" style="width: 100%; margin-top: 4px;">
+                                                <option value="por">Português (Padrão)</option>
+                                                <option value="eng">Inglês (English)</option>
+                                                <option value="spa">Espanhol (Español)</option>
+                                            </select>
+                                        </div>
+                                        <div class="checkbox-group" style="display: flex; align-items: center; gap: 8px; margin-top: 8px;">
+                                            <input type="checkbox" id="checkbox-force-ocr" style="accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer;">
+                                            <label for="checkbox-force-ocr" style="font-size: 0.815rem; color: var(--text-secondary); cursor: pointer;">Forçar OCR via Imagem (Mais lento, para digitalizados)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary btn-block btn-large btn-shine" id="btn-process-pdf" style="margin-top: 20px;">
+                                    <i data-lucide="scissors" class="btn-icon" id="btn-process-icon"></i>
+                                    <span id="btn-process-text">Dividir PDF Agora</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Processing State -->
+                    <div class="processing-zone hidden" id="processing-zone">
+                        <div class="spinner-container">
+                            <div class="custom-spinner"></div>
+                        </div>
+                        <h2>Processando PDF...</h2>
+                        <p id="processing-status-text">Executando alterações diretamente no seu navegador.</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Success State -->
+                    <div class="success-zone hidden" id="success-zone">
+                        <div class="success-animation">
+                            <div class="checkmark-circle">
+                                <i data-lucide="check" class="check-icon"></i>
+                            </div>
+                        </div>
+                        <h2>Concluído com Sucesso!</h2>
+                        <p id="success-message">Seus arquivos foram baixados automaticamente.</p>
+                        <div class="success-actions" style="margin-top: 20px; display: flex; gap: 12px; justify-content: center;">
+                            <button class="btn btn-primary" id="btn-download-again">
+                                <i data-lucide="download" class="btn-icon"></i>
+                                <span>Baixar Novamente</span>
+                            </button>
+                            <button class="btn btn-secondary" id="btn-start-over">
+                                <i data-lucide="rotate-ccw" class="btn-icon"></i>
+                                <span>Processar Outro</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 3: Processing State (Hidden initially) -->
-                <div class="processing-zone hidden" id="processing-zone">
-                    <div class="spinner-container">
-                        <div class="custom-spinner"></div>
+                <!-- Text Extractor Output Workspace (Specifically for OCR / Text Extract) -->
+                <div class="text-output-zone glass-panel hidden" id="text-output-zone" style="margin-top: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px; border-radius: var(--border-radius-lg);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 class="controls-title" style="margin:0; font-family: var(--font-heading); font-size:1.2rem;">Texto Extraído</h3>
+                        <button class="btn btn-secondary" id="btn-copy-extracted-text" style="padding: 8px 16px;">
+                            <i data-lucide="copy" class="btn-icon" style="width:16px; height:16px;"></i>
+                            <span>Copiar Texto</span>
+                        </button>
                     </div>
-                    <h2>Processando PDF...</h2>
-                    <p id="processing-status-text">Criando novos arquivos diretamente no seu navegador.</p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
-                    </div>
+                    <textarea id="extracted-text-area" class="input-text" style="width: 100%; min-height: 250px; font-family: monospace; font-size: 0.875rem; border-radius: var(--border-radius-sm); border: 1px solid var(--card-border); background: rgba(0,0,0,0.2); outline: none; padding: 12px; resize: vertical; color: #fff;" readonly></textarea>
                 </div>
-
-                <!-- Step 4: Success State (Hidden initially) -->
-                <div class="success-zone hidden" id="success-zone">
-                    <div class="success-animation">
-                        <div class="checkmark-circle">
-                            <i data-lucide="check" class="check-icon"></i>
-                        </div>
-                    </div>
-                    <h2>PDF Dividido com Sucesso!</h2>
-                    <p id="success-message">Seus arquivos foram baixados automaticamente.</p>
-                    <div class="success-actions">
-                        <button class="btn btn-primary" id="btn-download-again">
-                            <i data-lucide="download" class="btn-icon"></i>
-                            <span>Baixar Novamente</span>
-                        </button>
-                        <button class="btn btn-secondary" id="btn-start-over">
-                            <i data-lucide="rotate-ccw" class="btn-icon"></i>
-                            <span>Dividir Outro PDF</span>
-                        </button>
-                    </div>
+            </div>
+        </section>    </div>
                 </div>
             </div>
         </section>
@@ -263,27 +746,27 @@
                 
                 <div class="seo-grid">
                     <article class="seo-article">
-                        <h2>Como dividir PDF online em poucos segundos</h2>
+                        <h2>Como utilizar as ferramentas de PDF online</h2>
                         <ol class="step-list">
                             <li>
                                 <span class="step-number">1</span>
                                 <div>
-                                    <h3>Envie seu arquivo PDF</h3>
-                                    <p>Clique na área de upload ou arraste seu documento PDF diretamente para a caixa pontilhada acima.</p>
+                                    <h3>Escolha a ferramenta ideal</h3>
+                                    <p>Selecione um dos 13 recursos no painel principal: <strong>Dividir</strong>, <strong>Juntar</strong>, <strong>Comprimir</strong>, <strong>Assinar</strong>, <strong>OCR</strong>, entre outros.</p>
                                 </div>
                             </li>
                             <li>
                                 <span class="step-number">2</span>
                                 <div>
-                                    <h3>Escolha o método de divisão</h3>
-                                    <p>Selecione se deseja <strong>extrair cada página</strong> separadamente, definir <strong>intervalos de páginas personalizados</strong> (ex: páginas 1 a 5 e 8 a 10) ou <strong>dividir a cada X páginas</strong> de forma uniforme.</p>
+                                    <h3>Faça o upload do seu arquivo</h3>
+                                    <p>Arraste e solte o seu documento PDF ou imagem diretamente na área pontilhada. O processamento é imediato.</p>
                                 </div>
                             </li>
                             <li>
                                 <span class="step-number">3</span>
                                 <div>
-                                    <h3>Baixe os arquivos divididos</h3>
-                                    <p>Clique em "Dividir PDF Agora". Os arquivos gerados serão processados instantaneamente no seu navegador e o download iniciará automaticamente.</p>
+                                    <h3>Configure e baixe com segurança</h3>
+                                    <p>Ajuste as preferências específicas (intervalos de páginas, nível de compressão, assinaturas) e clique no botão de processamento. O download começa de forma automática e 100% local.</p>
                                 </div>
                             </li>
                         </ol>
@@ -294,8 +777,8 @@
                             <i data-lucide="shield-check" class="card-icon text-primary"></i>
                             <h2>Privacidade total: Seus dados não saem do seu computador</h2>
                         </div>
-                        <p>Diferente de outros sites online de conversão de arquivos que realizam o upload do seu documento para servidores externos, o <strong>Dividir PDF Online</strong> utiliza tecnologia moderna baseada em WebAssembly e JavaScript local.</p>
-                        <p><strong>Nenhum bit do seu arquivo é enviado para a internet.</strong> Toda a separação das páginas ocorre inteiramente dentro da memória do seu próprio navegador. Isso significa segurança máxima para documentos confidenciais, contratos corporativos ou dados pessoais.</p>
+                        <p>Diferente de outros sites online de conversão de arquivos que realizam o upload do seu documento para servidores externos, o <strong>Ferramentas de PDF Online</strong> utiliza tecnologia moderna baseada em WebAssembly e JavaScript local.</p>
+                        <p><strong>Nenhum bit do seu arquivo é enviado para a internet.</strong> Toda a separação, junção ou edição das páginas ocorre inteiramente dentro da memória do seu próprio navegador. Isso significa segurança máxima para documentos confidenciais, contratos corporativos ou dados pessoais.</p>
                         <div class="offline-badge">
                             <i data-lucide="wifi-off"></i>
                             <span>Funciona mesmo sem internet (100% offline)</span>
@@ -305,30 +788,30 @@
 
                 <div class="seo-features-grid">
                     <div class="feature-card">
-                        <i data-lucide="zap" class="feature-icon"></i>
-                        <h3>Processamento Instantâneo</h3>
-                        <p>Sem filas de espera. Como o processamento usa o hardware do seu próprio computador, a divisão é executada de forma muito mais rápida que em servidores congestionados.</p>
+                        <i data-lucide="layers" class="feature-icon"></i>
+                        <h3>Mesclar / Juntar PDFs</h3>
+                        <p>Combine vários arquivos em um único PDF de forma rápida. Arraste e solte os arquivos na lista lateral para ajustar a sequência exata de junção.</p>
                     </div>
                     <div class="feature-card">
-                        <i data-lucide="dollar-sign" class="feature-icon"></i>
-                        <h3>100% Gratuito e Sem Limites</h3>
-                        <p>Você pode dividir PDFs de qualquer tamanho e quantas vezes precisar. Não exigimos cadastro, e-mail ou dados de pagamento.</p>
+                        <i data-lucide="minimize-2" class="feature-icon"></i>
+                        <h3>Comprimir PDF sem Perda</h3>
+                        <p>Reduza o peso de seus arquivos selecionando o nível de compressão ideal para o seu uso, preservando imagens e textos nítidos sem envio a servidores.</p>
                     </div>
                     <div class="feature-card">
-                        <i data-lucide="file-text" class="feature-icon"></i>
-                        <h3>Preservação de Qualidade</h3>
-                        <p>A estrutura interna, fontes, imagens e textos do PDF original são mantidos intactos nos arquivos resultantes, sem nenhuma perda de qualidade.</p>
+                        <i data-lucide="pen-tool" class="feature-icon"></i>
+                        <h3>Assinar Documentos Grátis</h3>
+                        <p>Crie e insira sua assinatura digital personalizada. Escolha entre desenhar com o mouse/touchscreen ou digitar seu nome com fontes profissionais.</p>
                     </div>
                 </div>
 
                 <!-- Accordion FAQ section for rich SEO snippet indexing -->
                 <article class="seo-faq">
-                    <h2 class="text-center">Perguntas Frequentes sobre Divisão de PDFs</h2>
+                    <h2 class="text-center">Perguntas Frequentes sobre as Ferramentas de PDF</h2>
                     
                     <div class="faq-accordion">
                         <details class="faq-item">
                             <summary>
-                                <span>É seguro usar este divisor de PDF online?</span>
+                                <span>É seguro usar este divisor e editor de PDF online?</span>
                                 <i data-lucide="chevron-down" class="faq-chevron"></i>
                             </summary>
                             <div class="faq-content">
@@ -343,6 +826,36 @@
                             </summary>
                             <div class="faq-content">
                                 <p>Para extrair páginas específicas, selecione o modo de divisão "Intervalos personalizados". No campo de texto que aparece, digite as páginas desejadas. Por exemplo, se deseja extrair a página 1 e as páginas de 3 a 5, digite <code>1, 3-5</code> e clique em dividir.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>
+                                <span>Como juntar ou mesclar vários arquivos PDF?</span>
+                                <i data-lucide="chevron-down" class="faq-chevron"></i>
+                            </summary>
+                            <div class="faq-content">
+                                <p>Selecione a ferramenta "Juntar PDFs" na tela inicial, selecione ou arraste os arquivos do seu dispositivo para a caixa de upload. Em seguida, use a lista na barra lateral esquerda para reordenar a sequência de arquivos se necessário e clique em "Juntar PDFs Agora".</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>
+                                <span>Como reduzir o tamanho de um PDF sem perder qualidade?</span>
+                                <i data-lucide="chevron-down" class="faq-chevron"></i>
+                            </summary>
+                            <div class="faq-content">
+                                <p>Com a ferramenta "Comprimir PDF", você pode escolher 3 opções: "Compressão Recomendada" (ideal para a maioria dos casos, mantendo excelente equilíbrio visual e redução de peso), "Compressão Extrema" (para obter o menor tamanho de arquivo possível) ou "Compressão Leve" (para compressão sutil que foca em altíssima qualidade de imagem).</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>
+                                <span>Como assinar documentos PDF gratuitamente online?</span>
+                                <i data-lucide="chevron-down" class="faq-chevron"></i>
+                            </summary>
+                            <div class="faq-content">
+                                <p>Selecione a ferramenta "Assinar PDF" e carregue o seu documento. Clique em "Criar Assinatura" e escolha desenhar sua assinatura digital na tela ou digitar seu nome escolhendo estilos de caligrafia elegantes. Depois de salvar a assinatura, clique nela para inseri-la no documento, arraste e ajuste a escala sobre a página onde deseja posicionar e clique em processar.</p>
                             </div>
                         </details>
 
