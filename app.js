@@ -228,7 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Action button configs
         btnProcessText.textContent = meta.title + " Agora";
         const targetBtn = document.querySelector(`.tool-card-btn[data-tool="${toolKey}"]`);
-        const targetIcon = targetBtn ? targetBtn.querySelector('.tool-card-icon i').getAttribute('data-lucide') : 'scissors';
+        const iconEl = targetBtn ? (targetBtn.querySelector('[data-lucide]') || targetBtn.querySelector('svg') || targetBtn.querySelector('i')) : null;
+        const targetIcon = iconEl ? iconEl.getAttribute('data-lucide') : 'scissors';
         btnProcessIcon.setAttribute('data-lucide', targetIcon);
 
         dashboardView.classList.add('hidden');
